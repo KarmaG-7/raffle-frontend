@@ -1,0 +1,78 @@
+.home {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 5rem auto;
+  .title {
+    text-align: center;
+    margin-bottom: 5rem;
+    color: #ff5757;
+    letter-spacing: 1px;
+  }
+  h3 {
+    color: #402b3a;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  }
+  .create-raffle {
+    color: rgb(24 24 29);
+    padding: 3rem;
+    margin: 1rem 0 4rem 0;
+    border-radius: 1rem;
+    background-color: #f9f9ff;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    .input-block {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1.5rem;
+      border: 1.5px solid #ddd;
+      border-radius: 0.2rem;
+      &:focus-within {
+        border-color: #8c7569;
+        .input-label {
+          color: rgba(140, 117, 105, 0.8);
+        }
+      }
+      .input-label {
+        padding: 8px;
+        color: #ff5757;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+      }
+      .create-raffle-input {
+        border: 0;
+        outline: none;
+        padding: 8px;
+        margin-bottom: 1rem;
+        background-color: rgb(249 249 255);
+        &::placeholder {
+          color: #ccc;
+          font-size: 15px;
+        }
+      }
+    }
+    .instruction {
+      margin: 1rem 0;
+      color: #222831;
+    }
+    .submit-button {
+      width: 100%;
+      height: 2.5rem;
+      border: none;
+      border-radius: 0.3rem;
+      background-color: #ff5757;
+      color: white;
+      cursor: pointer;
+      margin: 1rem 0rem;
+      font-weight: bold;
+      font-size: medium;
+      &:hover {
+        transform: scale(0.96);
+      }
+    }
+  }
+  .listOfRaffles {
+    width: 100%;
+  }
+}
