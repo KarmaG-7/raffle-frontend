@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
-import All_Raffles from "./Components/All_Raffles/All_Raffles";
+import SingleRaffle from "./Components/SingleRaffle/SingleRaffle";
 import "./App.css";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/raffles/:id" element={<SingleRaffle />}></Route>
         </Routes>
       </Router>
     </>
