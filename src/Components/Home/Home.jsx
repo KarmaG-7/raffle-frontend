@@ -26,6 +26,7 @@ const Home = () => {
       const newRaffleData = response.data.data;
       setNewRaffle(newRaffleData);
       setRaffle({ title: "", secret_token: "" });
+      alert(`The raffle has been added!`);
     } catch (error) {
       console.log(error);
     }
@@ -33,8 +34,9 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1 className="title">Raffle App</h1>
-      <h3> New Raffle </h3>
+      {/* <h1 className="title">Raffle App</h1> */}
+      <h3> Create a New Raffle </h3>
+      <p>Please fill out the following form to create a new raffle:</p>
       <form className="create-raffle" onSubmit={handleSubmit}>
         <div className="input-block">
           <label htmlFor="raffle" className="input-label">

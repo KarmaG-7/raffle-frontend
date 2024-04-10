@@ -3,7 +3,11 @@ import axios from "axios";
 import NavBar from "../NavBar/NavBar";
 import { useParams } from "react-router-dom";
 import Pick_Winner from "../Pick_Winner/Pick_Winner";
+import { MdOutlineMail } from "react-icons/md";
+import { MdContactPhone } from "react-icons/md";
+import { IoMdPerson } from "react-icons/io";
 
+import "./Get_Winner.css";
 const Get_Winner = () => {
   const { id } = useParams();
   const [winnerInfo, setWinnerInfo] = useState({});
@@ -31,21 +35,50 @@ const Get_Winner = () => {
   };
 
   return (
-    <div className="section-winner">
+    <>
+      {" "}
       <NavBar id={id} />
-      <div>
+      <div className="section-winner">
         {loading && <p>Loading...</p>}
         {errorMessage && <p>{errorMessage}</p>}
         {!loading && winnerInfo !== null && (
-          <div className="eachPerson">
-            <p>Name: {winnerInfo.first_name}</p>
-            <p>Email: {winnerInfo.email}</p>
-            <p>Phone: {winnerInfo.phone || "N/A"}</p>
-          </div>
+          <>
+            <p className="info">Winner Information </p>
+            <div className="eachPerson">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2JCSzOH4wUW6yEbRA0n2cDqz9H7UbPnVQt4_z4Mzy8RsLKqhdSpnPtgD9wPNkTFM1yIA&usqp=CAU"
+                alt="winner"
+              />
+              <div className="information-winner">
+                <div>
+                  <IoMdPerson />
+                  <p>
+                    <strong>
+                      {" "}
+                      {winnerInfo.first_name} {winnerInfo.last_name}
+                    </strong>
+                  </p>
+                </div>
+                <div>
+                  <MdOutlineMail />
+                  <p>{winnerInfo.email}</p>
+                </div>
+                <div>
+                  <MdContactPhone />
+                  <p>{winnerInfo.phone || "N/A"}</p>
+                </div>
+
+                <p className="congrats">Congratulations!!!</p>
+              </div>
+            </div>
+          </>
+        )}
+
+        {!loading && winnerInfo === null && (
+          <Pick_Winner chosenOne={chosenOne} />
         )}
       </div>
-      {!loading && winnerInfo === null && <Pick_Winner chosenOne={chosenOne} />}
-    </div>
+    </>
   );
 };
 

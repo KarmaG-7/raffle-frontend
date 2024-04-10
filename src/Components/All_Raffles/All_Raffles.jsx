@@ -46,6 +46,7 @@ const All_Raffles = ({ newRaffle }) => {
     <div className="listOfRaffles">
       {renderContent()}
       <h3>All Raffles</h3>
+      <p>Below is a list of all the raffles:</p>
       <div className="raffles-list">
         {raffles.map((raffle) => {
           return (

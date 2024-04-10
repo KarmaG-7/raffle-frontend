@@ -1,0 +1,42 @@
+.section-winner {
+  margin: 5rem auto;
+
+  display: flex;
+  flex-direction: column;
+  .info {
+    text-align: center;
+    font-weight: 600;
+    font-size: large;
+    text-transform: uppercase;
+  }
+  .eachPerson {
+    padding: 0.5rem;
+    width: 35%;
+    margin: 2rem auto;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #ccc;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    img {
+      height: 13rem;
+    }
+    .information-winner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 1rem auto;
+      div {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .congrats {
+        margin-top: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

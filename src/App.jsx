@@ -5,12 +5,14 @@ import SingleRaffle from "./Components/SingleRaffle/SingleRaffle";
 import All_Raffles from "./Components/All_Raffles/All_Raffles";
 import RaffleParticipants from "./Components/RaffleParticipants/RaffleParticipants";
 import Get_Winner from "./Components/Get_Winner/Get_Winner";
+import Header from "./Components/Header/Header";
 import "./App.css";
 
 function App() {
   return (
     <>
       <Router>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/raffles" element={<All_Raffles />}></Route>
