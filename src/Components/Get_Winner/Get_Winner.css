@@ -16,7 +16,8 @@
     height: 25rem;
     display: flex;
     flex-direction: column;
-    border: 3px solid #ccc;
+    border: 2px solid #ccc;
+    background-color: #f9f9ff;
     border-radius: 0.5rem;
     gap: 1rem;
     img {

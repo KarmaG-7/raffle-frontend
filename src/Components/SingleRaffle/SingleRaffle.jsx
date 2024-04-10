@@ -62,6 +62,13 @@ const SingleRaffle = () => {
   return (
     <>
       <NavBar id={id} />
+      {raffle.winner_id !== null && (
+        <p className="winner-picked">
+          **The winner for this raffle has been picked. You can't add any more
+          participants.**
+        </p>
+      )}
+
       <div className="enterToRaffle">
         <h3>{raffle.title}</h3>
         <form onSubmit={handleSubmit} className="add-participant-form">

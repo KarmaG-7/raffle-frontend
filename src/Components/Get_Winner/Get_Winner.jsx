@@ -4,7 +4,7 @@ import NavBar from "../NavBar/NavBar";
 import { useParams } from "react-router-dom";
 import Pick_Winner from "../Pick_Winner/Pick_Winner";
 import { MdOutlineMail } from "react-icons/md";
-import { MdContactPhone } from "react-icons/md";
+import { FaPhoneFlip } from "react-icons/fa6";
 import { IoMdPerson } from "react-icons/io";
 
 import "./Get_Winner.css";
@@ -64,7 +64,7 @@ const Get_Winner = () => {
                   <p>{winnerInfo.email}</p>
                 </div>
                 <div>
-                  <MdContactPhone />
+                  <FaPhoneFlip />
                   <p>{winnerInfo.phone || "N/A"}</p>
                 </div>
 

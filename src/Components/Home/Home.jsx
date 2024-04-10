@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import All_Raffles from "../All_Raffles/All_Raffles";
 import axios from "axios";
 import "./Home.css";
@@ -34,7 +34,6 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* <h1 className="title">Raffle App</h1> */}
       <h3> Create a New Raffle </h3>
       <p>Please fill out the following form to create a new raffle:</p>
       <form className="create-raffle" onSubmit={handleSubmit}>

@@ -1,3 +1,8 @@
+.winner-picked {
+  text-align: center;
+  color: #ff5757;
+  font-style: italic;
+}
 .enterToRaffle {
   width: 70%;
   margin: 5rem auto;
@@ -60,7 +65,7 @@
         height: 2.5rem;
         border: none;
         border-radius: 0.3rem;
-        background-color: #ff5757;
+        background-color: #f57575;
         color: white;
         cursor: pointer;
         margin: 1rem 0rem;
@@ -68,6 +73,7 @@
         font-size: medium;
         &:hover {
           transform: scale(0.96);
+          background-color: #ff5757;
         }
       }
     }
