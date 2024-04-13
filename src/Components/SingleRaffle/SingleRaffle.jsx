@@ -154,7 +154,7 @@ const SingleRaffle = () => {
             />
           </div>
           <div className="add-reset">
-            <button>Submit</button>
+            <button disabled={raffle.winner_id !== null}>Submit</button>
             <button onClick={resetForm}>Reset</button>
           </div>
         </form>
