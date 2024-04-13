@@ -39,7 +39,7 @@ const Pick_Winner = ({ chosenOne }) => {
 
   return (
     <div className="pick-winner">
-      {loading && <p>Loading....</p>}
+      {loading && <p className="message">Loading....</p>}
 
       <form onSubmit={handleSubmit} className="winner-form">
         <h3>Pick a Winner</h3>
@@ -53,7 +53,7 @@ const Pick_Winner = ({ chosenOne }) => {
           required
         />
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && <p className="message">{errorMessage}</p>}
 
         <button className="submit-button">Pick a Winner</button>
       </form>

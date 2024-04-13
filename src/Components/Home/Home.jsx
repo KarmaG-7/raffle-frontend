@@ -5,6 +5,8 @@ import "./Home.css";
 
 const Home = () => {
   const [newRaffle, setNewRaffle] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [raffle, setRaffle] = useState({
     title: "",
@@ -23,12 +25,15 @@ const Home = () => {
     try {
       const url = import.meta.env.VITE_API_URL;
       const response = await axios.post(`${url}/raffles`, raffle);
+      setLoading(true);
       const newRaffleData = response.data.data;
       setNewRaffle(newRaffleData);
       setRaffle({ title: "", secret_token: "" });
       alert(`The raffle has been added!`);
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.response.data.error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,7 +79,8 @@ const Home = () => {
         </p>
         <button className="submit-button">Create New Raffle</button>
       </form>
-
+      {loading && <p className="message">Loading....</p>}
+      {errorMessage && <p className="message">{errorMessage}</p>}
       <All_Raffles newRaffle={newRaffle} />
     </div>
   );

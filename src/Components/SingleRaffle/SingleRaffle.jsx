@@ -7,6 +7,8 @@ import axios from "axios";
 
 const SingleRaffle = () => {
   const { id } = useParams();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [raffle, setRaffle] = useState({});
   const [newParticipant, setNewParticipant] = useState({
     first_name: "",
@@ -34,22 +36,37 @@ const SingleRaffle = () => {
       phone: "",
     });
   };
+
   const fetchRaffle = async () => {
     try {
       const url = import.meta.env.VITE_API_URL;
       const res = await axios.get(`${url}/raffles/${id}`);
+      setLoading(true);
       setRaffle(res.data.data);
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.response.data.error);
+    } finally {
+      setLoading(false);
     }
   };
+
   const addParticipantToRaffle = async () => {
     try {
       const url = import.meta.env.VITE_API_URL;
       await axios.post(`${url}/raffles/${id}/participants`, newParticipant);
+      setLoading(true);
       alert("The participant has been added");
     } catch (error) {
-      console.log(error);
+      setErrorMessage(error.response.data.error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  const renderContent = () => {
+    if (loading) {
+      return <p className="message">Loading.....</p>;
+    } else if (errorMessage) {
+      return <p className="message">Error: {errorMessage}</p>;
     }
   };
 
@@ -62,13 +79,17 @@ const SingleRaffle = () => {
   return (
     <>
       <NavBar id={id} />
-      {raffle.winner_id !== null && (
+      {raffle.winner_id === null ? (
+        ""
+      ) : (
         <p className="winner-picked">
           **The winner for this raffle has been picked already. You can't add
           any more participants. Please click "pick winner" to see more
           information.**
         </p>
       )}
+
+      {renderContent()}
 
       <div className="enterToRaffle">
         <h3>{raffle.title}</h3>

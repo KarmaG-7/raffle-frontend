@@ -25,6 +25,7 @@
       .raffle-title {
         color: #ff5757;
         font-size: large;
+        font-weight: 600;
       }
       .single-raffle-info {
         display: flex;

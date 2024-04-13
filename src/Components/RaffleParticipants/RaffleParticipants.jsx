@@ -27,7 +27,7 @@ const raffleParticipants = () => {
       const res = await axios.get(`${url}/raffles/${id}/participants`);
       setAllParticipants(res.data.data);
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.response.data.error);
     } finally {
       setLoading(false);
     }

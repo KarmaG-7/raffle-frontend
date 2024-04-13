@@ -4,3 +4,8 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+.message {
+  font-style: italic;
+  text-align: center;
+  color: #ff5757;
+}

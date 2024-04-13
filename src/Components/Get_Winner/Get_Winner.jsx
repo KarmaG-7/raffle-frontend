@@ -30,7 +30,7 @@ const Get_Winner = () => {
       setWinnerInfo(res.data.data);
       setLoading(false);
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.response.data.error);
     }
   };
 
@@ -39,8 +39,8 @@ const Get_Winner = () => {
       {" "}
       <NavBar id={id} />
       <div className="section-winner">
-        {loading && <p>Loading...</p>}
-        {errorMessage && <p>{errorMessage}</p>}
+        {loading && <p className="message">Loading...</p>}
+        {errorMessage && <p className="message">{errorMessage}</p>}
         {!loading && winnerInfo !== null && (
           <>
             <p className="info">Winner Information </p>

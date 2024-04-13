@@ -20,7 +20,7 @@ const All_Raffles = ({ newRaffle }) => {
       const res = await axios.get(`${url}/raffles`);
       setRaffles(res.data.data);
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.response.data.error);
     } finally {
       setLoading(false);
     }
@@ -38,9 +38,9 @@ const All_Raffles = ({ newRaffle }) => {
 
   const renderContent = () => {
     if (loading) {
-      return <p>Loading.....</p>;
+      return <p className="message">Loading.....</p>;
     } else if (errorMessage) {
-      return <p>Error: {errorMessage}</p>;
+      return <p className="message">Error: {errorMessage}</p>;
     }
   };
 
