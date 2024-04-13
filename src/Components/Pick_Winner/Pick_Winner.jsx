@@ -10,6 +10,7 @@ const Pick_Winner = ({ chosenOne }) => {
   const [password, setPassword] = useState({ secret_token: "" });
 
   const handleChange = (e) => {
+    setErrorMessage("");
     setPassword({
       ...password,
       [e.target.id]: e.target.value,
@@ -30,13 +31,7 @@ const Pick_Winner = ({ chosenOne }) => {
       const res = await axios.put(`${url}/raffles/${id}/winner`, password);
       chosenOne(res.data.data);
     } catch (error) {
-      if (error.response && error.response.status === 403) {
-        setErrorMessage("Invalid secret token. Please try again.");
-      } else if (error.response && error.response.status === 400) {
-        setErrorMessage(error.response.data.error);
-      } else {
-        setErrorMessage("An error occurred. Please try again later.");
-      }
+      setErrorMessage(error.response.data.error);
     } finally {
       setLoading(false);
     }
@@ -57,6 +52,7 @@ const Pick_Winner = ({ chosenOne }) => {
           id="secret_token"
           required
         />
+
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <button className="submit-button">Pick a Winner</button>

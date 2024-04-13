@@ -64,8 +64,9 @@ const SingleRaffle = () => {
       <NavBar id={id} />
       {raffle.winner_id !== null && (
         <p className="winner-picked">
-          **The winner for this raffle has been picked. You can't add any more
-          participants.**
+          **The winner for this raffle has been picked already. You can't add
+          any more participants. Please click "pick winner" to see more
+          information.**
         </p>
       )}
 
